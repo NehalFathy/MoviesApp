@@ -23,7 +23,7 @@ public class MovieDbHelper extends SQLiteOpenHelper {
     private  final String LOG_TAG =MovieDbHelper.class.getSimpleName() ;
 
     // If you change the database schema, you must increment the database version.
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 1;
 
     static final String DATABASE_NAME = "movie.db";
 
@@ -188,6 +188,8 @@ public class MovieDbHelper extends SQLiteOpenHelper {
                 movieList.add(m);
             } while (cursor.moveToNext());
         }
+
+        db.close();
 
         // return contact list
         return movieList;
